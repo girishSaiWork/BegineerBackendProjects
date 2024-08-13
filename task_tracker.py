@@ -1,3 +1,31 @@
+"""
+Task Tracker CLI Application
+
+Description:
+This is a simple command-line interface (CLI) application for tracking tasks.
+It allows users to add, view, update, delete, and search tasks, as well as
+list tasks by their status (pending, in progress, or completed).
+
+Author: Girish Sai Thiruvidhulla
+Date: 12-8-2024
+Reference URL: https://roadmap.sh/projects/task-tracker
+Github URL : https://github.com/girishSaiWork/BegineerPythonProjects
+
+Features:
+- Add new tasks with title and description
+- View all tasks
+- Update existing tasks
+- Delete tasks
+- Search tasks by keyword
+- List tasks by status (pending, in progress, completed)
+- Simple and intuitive command-line interface
+
+This project serves as a practical example of basic CRUD operations
+and data management in Python, suitable for beginners and intermediate
+programmers looking to understand CLI application development.
+"""
+
+
 print("####################################################################################################")
 print("#                                            TASK TRACKER IN PYTHON                                #")
 print("####################################################################################################")
