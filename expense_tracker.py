@@ -1,7 +1,34 @@
+"""
+Expense Tracker CLI Application
+
+Description:
+This is a command-line interface (CLI) application for tracking personal expenses.
+It allows users to add, view, update, delete, and summarize expenses, providing
+a simple yet effective way to manage financial records.
+
+Author: Girish Sai Thiruvidhulla
+Date: 12-8-2024
+Reference URL: https://roadmap.sh/projects/expense-tracker
+Github URL: https://github.com/girishSaiWork/BegineerPythonProjects
+
+Features:
+- Add new expenses with description, amount, and date
+- View all recorded expenses
+- Update existing expense entries
+- Delete specific expenses
+- Generate a summary of total expenses
+- Utilizes pandas DataFrame for efficient data manipulation
+- Simple and intuitive command-line interface
+
+This project demonstrates practical implementation of CRUD operations,
+data management, and basic financial tracking in Python. It's suitable
+for beginners and intermediate programmers looking to understand CLI
+application development and basic data analysis concepts.
+"""
+
+# Importing packages
 from datetime import date,datetime
 import pandas as pd
-
-
 
 
 def id_getter(id_list):
