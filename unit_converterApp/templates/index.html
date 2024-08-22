@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #555;
+            text-align: center;
+        }
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .footer a {
+            color: #555;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            color: #000;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        function updateUnits() {
+            const unitType = document.getElementById('unit_type').value;
+            const fromUnit = document.getElementById('from_unit');
+            const toUnit = document.getElementById('to_unit');
+
+            const lengthUnits = `
+                <option value="millimeter">Millimeter</option>
+                <option value="centimeter">Centimeter</option>
+                <option value="meter">Meter</option>
+                <option value="kilometer">Kilometer</option>
+                <option value="inch">Inch</option>
+                <option value="foot">Foot</option>
+                <option value="yard">Yard</option>
+                <option value="mile">Mile</option>
+            `;
+            const weightUnits = `
+                <option value="milligram">Milligram</option>
+                <option value="gram">Gram</option>
+                <option value="kilogram">Kilogram</option>
+                <option value="ounce">Ounce</option>
+                <option value="pound">Pound</option>
+                <option value="lbs">Lbs</option>
+            `;
+            const temperatureUnits = `
+                <option value="Celsius">Celsius</option>
+                <option value="Fahrenheit">Fahrenheit</option>
+                <option value="Kelvin">Kelvin</option>
+            `;
+
+            let options = '';
+            if (unitType === 'length') {
+                options = lengthUnits;
+            } else if (unitType === 'weight') {
+                options = weightUnits;
+            } else if (unitType === 'temperature') {
+                options = temperatureUnits;
+            }
+
+            fromUnit.innerHTML = options;
+            toUnit.innerHTML = options;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Converter</h1>
+        <form method="POST" action="/convert">
+            <label for="unit_type">Select Unit Type:</label>
+            <select name="unit_type" id="unit_type" onchange="updateUnits()" required>
+                <option value="length">Length</option>
+                <option value="weight">Weight</option>
+                <option value="temperature">Temperature</option>
+            </select>
+
+            <label for="value">Enter Value to Convert:</label>
+            <input type="number" name="value" id="value" step="any" required>
+
+            <label for="from_unit">From Unit:</label>
+            <select name="from_unit" id="from_unit" required>
+                <!-- Default to Length Units -->
+                <option value="millimeter">Millimeter</option>
+                <option value="centimeter">Centimeter</option>
+                <option value="meter">Meter</option>
+                <option value="kilometer">Kilometer</option>
+                <option value="inch">Inch</option>
+                <option value="foot">Foot</option>
+                <option value="yard">Yard</option>
+                <option value="mile">Mile</option>
+            </select>
+
+            <label for="to_unit">To Unit:</label>
+            <select name="to_unit" id="to_unit" required>
+                <!-- Default to Length Units -->
+                <option value="millimeter">Millimeter</option>
+                <option value="centimeter">Centimeter</option>
+                <option value="meter">Meter</option>
+                <option value="kilometer">Kilometer</option>
+                <option value="inch">Inch</option>
+                <option value="foot">Foot</option>
+                <option value="yard">Yard</option>
+                <option value="mile">Mile</option>
+            </select>
+
+            <button type="submit">Convert</button>
+        </form>
+        {% if result %}
+        <div class="result">
+            <p>{{ value }} {{ from_unit }} = {{ result }} {{ to_unit }}</p>
+        </div>
+        {% endif %}
+        <div class="footer">
+            <a href="https://github.com/girishSaiWork/BegineerPythonProjects" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://roadmap.sh/projects/unit-converter" target="_blank">
+                <i class="fas fa-book"></i> Reference
+            </a>
+        </div>
+    </div>
+</body>
+</html>
